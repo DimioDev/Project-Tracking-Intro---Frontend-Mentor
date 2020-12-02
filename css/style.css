@@ -92,7 +92,7 @@ span {
 }
 .attribution {
   grid-area: hero;
-  margin-top: 10rem;
+  margin-top: 5rem;
   height: 20px;
   font-size: 14px;
   font-weight: 400;
