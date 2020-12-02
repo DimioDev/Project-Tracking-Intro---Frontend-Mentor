@@ -1,0 +1,452 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 18px;
+  width: 100%;
+  background-color: grey;
+  color: hsl(230, 29%, 20%);
+}
+.container {
+  width: 1440px;
+  height: 100vh;
+  display: grid;
+  margin: 50px auto;
+  background-color: white;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1;
+  grid-template-areas: "hero device";
+}
+
+.hero {
+  grid-area: hero;
+  display: flex;
+  height: 100vh;
+  align-items: left;
+  padding-left: 10rem;
+  flex-direction: column;
+  justify-content: left;
+}
+.logo {
+  grid-area: hero;
+  padding: 5rem 0 0 10rem;
+}
+
+h1 {
+  grid-area: hero;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 4rem;
+  text-align: left;
+}
+.subtitle {
+  font-family: "Barlow", sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-top: 20rem;
+  letter-spacing: 2px;
+}
+.subtitle span {
+  background-color: black;
+  font-weight: 700;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+.text {
+  font-family: "Barlow", sans-serif;
+  font-weight: 400;
+  padding: 3rem 17rem 3rem 0;
+}
+
+.btn {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 15px 20px;
+  margin-right: 1rem;
+  border-radius: 5px;
+  border: none;
+  background-color: hsl(0, 100%, 68%);
+  color: white;
+}
+.btn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+span {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.attribution {
+  grid-area: hero;
+  margin-top: 10rem;
+  height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/* UL element Navigation Main Menu */
+.menu-wrap {
+  grid-area: device;
+  position: relative;
+}
+.menu {
+  margin-top: 4rem;
+  margin-left: 10rem;
+  margin-bottom: 0;
+  list-style-type: none;
+}
+.menu li {
+  float: left;
+  height: 50px;
+  margin-right: 3rem; /* space between menu items */
+  list-style-type: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: hsl(230, 29%, 20%);
+  line-height: 25px;
+  font-weight: 700;
+}
+
+.menu > li > a:hover {
+  margin-bottom: 10px;
+  padding-bottom: 3px;
+  color: hsl(231, 7%, 65%);
+}
+.menu li:last-child {
+  list-style-image: url(../images/Untitled.png);
+}
+.toggler {
+  opacity: 0;
+}
+#login > a {
+  margin-left: 2rem;
+  color: hsl(240, 0%, 55%);
+}
+#login:hover {
+  color: hsl(230, 11%, 40%);
+}
+
+.display {
+  position: relative;
+  margin-top: 5rem;
+  width: 60rem;
+}
+.grey {
+  grid-area: device;
+  background-color: hsl(207, 33%, 95%);
+  width: 100%;
+  height: 60vh;
+  border-bottom-left-radius: 5rem;
+}
+.devices {
+  margin: auto 0;
+  padding-top: 5rem;
+  width: 44rem;
+  grid-area: device;
+  overflow: hidden;
+}
+#line {
+  display: none;
+}
+
+/* MAX-WIDTH 991px */
+@media (max-width: 991px) {
+  .container {
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 200vh;
+    overflow-x: hidden;
+    grid-template-areas:
+      "device"
+      "hero";
+  }
+  .menu-wrap {
+    margin-left: 5rem;
+  }
+  .hero {
+    margin: 0 10rem 0 0;
+  }
+  .logo {
+    position: relative;
+    grid-area: device;
+    padding: 5rem 0 0 5rem;
+  }
+  .devices,
+  .grey {
+    margin-left: 20rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    grid-template-areas:
+      "device"
+      "hero";
+  }
+  .logo {
+    position: absolute;
+    grid-area: device;
+    padding: 0;
+    top: 2rem;
+    left: 3rem;
+  }
+  .grey {
+    width: 80%;
+    height: 70vh;
+    margin-left: 30%;
+  }
+  .devices {
+    margin: 0;
+  }
+  .display {
+    margin: 7rem 0 0 3rem;
+    grid-area: device;
+    width: 70%;
+    height: 13em;
+  }
+  /* MENU STYLES */
+  /* placing the menu on top of the picture */
+  .menu-wrap {
+    grid-area: device;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    z-index: 1;
+  }
+
+  /* formating the checkbox - hamburger icon */
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+
+  /* formating the square for the hamburger icon */
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Hamburger Line */
+  .menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: hsl(230, 11%, 40%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+
+  /* Hamburger Lines - Top & Bottom - they go on top first*/
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+
+  /* Moves one Line Down - to have three lines */
+  .menu-wrap .hamburger > div::after {
+    top: 10px;
+  }
+
+  /* Toggler Animation - rotate 135 degrees */
+  .menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+
+  /* Turns Lines Into X - targeting both lines - top and bottom*/
+  .menu-wrap .toggler:checked + .hamburger > div::before,
+  .menu-wrap .toggler:checked + .hamburger > div::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+
+  /* When clicked - blue overlay is visible */
+  .menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+  }
+  /* scaling out blue overlay */
+  .menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+  }
+  /* targeting the menu text - make it visible */
+  .menu-wrap .toggler:checked ~ .menu > div {
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+  }
+  /* Moves Menu to the center of the screen */
+  .menu-wrap {
+    width: 82vw;
+    display: flex;
+    justify-content: center;
+  }
+  .menu-wrap .menu {
+    width: 18rem;
+    height: 15rem;
+    margin: 7rem auto;
+    flex-direction: column;
+    background: white;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  }
+  /* first blue wave animation - show circle overlay */
+  .menu-wrap .menu > div {
+    display: flex;
+    flex: none;
+    top: 0;
+    left: 0;
+    width: 18rem;
+    height: 15rem;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+  }
+  .menu-wrap .menu > div > ul {
+    display: flex;
+    margin: 0 auto;
+    background: white;
+    flex-direction: column;
+    justify-content: center;
+    width: 18rem;
+    height: 15rem;
+  }
+  /* list items stiling */
+  .menu-wrap .menu > div > ul > li {
+    list-style: none;
+    margin: 0.2rem auto;
+    align-self: center;
+    font-size: 1.3rem;
+  }
+  /* links stiling - color: inherit - makes text white */
+  .menu-wrap .menu > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  #login::before {
+    content: "";
+    position: absolute;
+    width: 85%;
+    margin-left: -35%;
+    margin-top: -10px;
+    height: 2px;
+    background-color: hsl(0, 0%, 82%);
+  }
+  #login {
+    margin: 0 auto;
+    padding-top: 1rem;
+  }
+  #login > a {
+    margin: 0;
+  }
+  .hero {
+    padding: 0 2rem;
+    width: 90vw;
+    height: 50vh;
+  }
+  h1 {
+    grid-area: hero;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 2.1rem;
+    text-align: left;
+  }
+  .subtitle {
+    margin-top: 2rem;
+    line-height: 1.5;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
+  }
+  .subtitle span {
+    background-color: black;
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+  }
+  .text {
+    font-family: "Barlow", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    padding: 1rem 0;
+  }
+
+  .btn {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+  }
+  span {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+  .attribution {
+    margin: 2rem auto;
+    font-size: 0.8rem;
+  }
+}
